@@ -37,17 +37,24 @@ var CommentForm = React.createClass({
 
 var Comment = React.createClass({
     render: function () {
+
+        var style = {
+            color: 'green',
+            fontSize: 50
+        };
+
         return (
             <div className="comment">
                 <h2 className="commentAuthor">
                     {this.props.author}
                 </h2>
-                {this.props.children}
+                <span style={style}>
+                    {this.props.children}
+                </span>
             </div>
             );
     }
 });
-
 
 // seems like render has to be placed at the end
 React.render(
