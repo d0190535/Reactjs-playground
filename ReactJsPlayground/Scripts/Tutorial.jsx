@@ -18,6 +18,8 @@ var CommentList = React.createClass({
         return (
             <div className="commentList">
                 I am a comment list woot
+                <Comment author="Person-A">My first comment!</Comment>
+                <Comment author="Person-B">My second comment!!</Comment>
             </div>
             );
     }
@@ -33,9 +35,24 @@ var CommentForm = React.createClass({
     }
 });
 
+var Comment = React.createClass({
+    render: function () {
+        return (
+            <div className="comment">
+                <h2 className="commentAuthor">
+                    {this.props.author}
+                </h2>
+                {this.props.children}
+            </div>
+            );
+    }
+});
+
 
 // seems like render has to be placed at the end
 React.render(
     <CommentBox />,
     document.getElementById('content')
 );
+
+// notes: data from parent component (CommentList) is propagated down to the child component (Child)
